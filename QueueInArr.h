@@ -159,7 +159,7 @@ std::ostream &operator<<(std::ostream &os, const QueueInArr<T> &qia)
       }
    }
 
-   os << "\n\n-------- end of Queue --------\n\n";
+   os << "\n\n-------- end of Queue --------";
    return os;
 }
 

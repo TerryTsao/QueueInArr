@@ -15,6 +15,21 @@ int main()
    {
       if (myQueue.isEmpty())
          cout << "myQueue is created empty.\n\n";
+
+      // test enqueue and dequeue first
+      myQueue.enqueue("Hello");
+      myQueue.enqueue("world!");
+      cout << myQueue << "\n\n";
+      {
+         string str;
+         myQueue.peek(str);
+         cout << "I've peek the first in myQueue. It's \""
+            << str << "\".\n";
+         str = "";
+         myQueue.dequeue(str);
+         cout << str << " dequeued\n";
+      }
+
       for (int i = 0; ; i++)
       {
          ostringstream oss;
@@ -26,7 +41,7 @@ int main()
       }
 
       cout << "\nmyQueue is full now.\n\n";
-      cout << myQueue;
+      cout << myQueue << "\n\n";
 
       cout << "cp myQueue copyQueue\n\n";
       copyQueue = myQueue;
@@ -41,11 +56,11 @@ int main()
       }
 
       cout << "\nAn empty queue now.\n\n";
-      cout << myQueue;
+      cout << myQueue << "\n\n";
    }
 
    cout << "========== Display copyQueue =========\n\n";
-   cout << copyQueue;
+   cout << copyQueue << "\n\n";
    if (!copyQueue.enqueue("Should not work"))
       cout << "copyQueue is full as excepted.\n";
 
