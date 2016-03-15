@@ -57,6 +57,20 @@ int main()
 
       cout << "\nAn empty queue now.\n\n";
       cout << myQueue << "\n\n";
+
+      cout << "Repopulating once more:\n\n";
+      for (int i = 0; ; i++)
+      {
+         ostringstream oss;
+         oss << "str #" << i;
+         if (myQueue.enqueue(oss.str()))
+            cout << oss.str() << " added to myQueue.\n";
+         else
+            break;
+      }
+
+      cout << "\nmyQueue is full now.\n\n";
+      cout << myQueue << "\n\n";
    }
 
    cout << "========== Display copyQueue =========\n\n";
