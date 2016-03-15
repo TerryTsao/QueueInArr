@@ -66,7 +66,8 @@ bool QueueInArr<T>::isValidSize(int size)
 template <class T>
 int QueueInArr<T>::indexIncrement(int &index)
 {
-   index = (index + 1) % size;
+   if (++index >= size)
+      index %= size;
    return index;
 }
 
@@ -109,9 +110,9 @@ bool QueueInArr<T>::enqueue(T t)
    if (front == back)
       return false;
 
-   // set front to 0 if isEmpty
+   // set front to back if isEmpty
    if (isEmpty())
-      front = 0;
+      front = back;
    // enqueue
    arr[back] = t;
    indexIncrement(back);
@@ -125,10 +126,8 @@ bool QueueInArr<T>::dequeue(T &t)
       return false;
    indexIncrement(front);
    if (front == back)   // if now empty, reset front and back
-   {
       front = -1;
-      back = 0;
-   }
+
    return true;
 }
 
