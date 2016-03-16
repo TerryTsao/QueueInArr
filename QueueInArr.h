@@ -67,7 +67,7 @@ template <class T>
 int QueueInArr<T>::indexIncrement(int &index)
 {
    if (++index >= size)
-      index %= size;
+      index = 0;
    return index;
 }
 
